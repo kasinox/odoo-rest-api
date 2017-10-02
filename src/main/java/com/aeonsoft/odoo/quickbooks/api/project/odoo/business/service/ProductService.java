@@ -1,0 +1,64 @@
+package com.aeonsoft.odoo.quickbooks.api.project.odoo.business.service;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.aeonsoft.odoo.quickbooks.api.project.odoo.business.domain.ProductStatus;
+import com.aeonsoft.odoo.quickbooks.api.project.odoo.data.entity.product.ProductProduct;
+import com.aeonsoft.odoo.quickbooks.api.project.odoo.data.entity.product.ProductTemplate;
+import com.aeonsoft.odoo.quickbooks.api.project.odoo.data.repo.ProductProductRepository;
+//import com.aeonsoft.odoo.quickbooks.api.project.odoo.data.repo.ProductSupplierInfoRepository;
+import com.aeonsoft.odoo.quickbooks.api.project.odoo.data.repo.ProductTemplateRepository;
+
+/*
+ * product id in sales order refers to product_product, then get additional information from product_template
+ */
+@Service
+public class ProductService {
+
+	
+	private ProductProductRepository productProductRepository;
+	private ProductTemplateRepository productTemplateRepository;
+//	private ProductSupplierInfoRepository productSupplierInfoRepository;
+	
+
+	
+	@Autowired
+	public ProductService(ProductProductRepository productProductRepository,ProductTemplateRepository productTemplateRepository) {
+		
+		this.productProductRepository = productProductRepository;
+		this.productTemplateRepository = productTemplateRepository;
+		
+	}
+
+
+
+
+	public ProductStatus getProductProductById(String product_id){
+		long id = Long.parseLong(product_id);
+		ProductProduct product = this.productProductRepository.findById(id);
+		
+		System.out.println(product.getId());
+		System.out.println(product.getProduct_tmpl_id());
+	
+			ProductStatus productStatus = new ProductStatus();			
+			productStatus.setId(product.getId());
+			productStatus.setPp_id(product.getId());
+			productStatus.setPt_id(product.getProduct_tmpl_id());
+			productStatus.setName(product.getName_template());
+		
+		ProductTemplate pt = this.productTemplateRepository.findById(product.getProduct_tmpl_id());
+			if(null!=pt) {
+				productStatus.setSalesDescription(pt.getDescription_sale());
+				productStatus.setPurchaseDescription(pt.getDescription_purchase());
+			}
+
+			
+		return productStatus;
+	}
+}
