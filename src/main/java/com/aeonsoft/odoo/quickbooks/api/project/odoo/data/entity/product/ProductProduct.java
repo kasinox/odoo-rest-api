@@ -46,7 +46,7 @@ public class ProductProduct {
 	private String	image_variant	;//	Variant Image
 	
 	@Column(name="product_tmpl_id")		
-	private int	product_tmpl_id	;//	Product Template
+	private long product_tmpl_id	;//	Product Template
 	
 	@Column(name="x_length_net")		
 	private String	x_length_net	;//	Net Length (cm)
@@ -171,12 +171,14 @@ public class ProductProduct {
 		this.x_height_net = x_height_net;
 	}
 
-	public int getProduct_tmpl_id() {
+	public long getProduct_tmpl_id() {
 		return product_tmpl_id;
 	}
 
-	public void setProduct_tmpl_id(int product_tmpl_id) {
+	public void setProduct_tmpl_id(long product_tmpl_id) {
 		this.product_tmpl_id = product_tmpl_id;
 	}
+
+
 
 }

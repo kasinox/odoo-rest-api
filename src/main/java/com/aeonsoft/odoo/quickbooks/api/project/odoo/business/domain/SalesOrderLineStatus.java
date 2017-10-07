@@ -10,12 +10,16 @@ public class SalesOrderLineStatus {
 	private double price;
 	private double discount;
 	private int salesman_id;
+
+	private String salesman_name;
+
 	private int product_id;
 	private String so_desc;
 	private String state;
 	private int order_partner_id;
 	private String location;
 	private String sale_layout;
+	
 	public long getId() {
 		return id;
 	}
@@ -96,7 +100,12 @@ public class SalesOrderLineStatus {
 		this.sale_layout = sale_layout;
 	}
 	
-	
+	public String getSalesman_name() {
+		return salesman_name;
+	}
+	public void setSalesman_name(String salesman_name) {
+		this.salesman_name = salesman_name;
+	}
 	
 
 }

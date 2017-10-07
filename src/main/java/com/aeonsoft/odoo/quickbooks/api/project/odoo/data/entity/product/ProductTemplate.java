@@ -34,14 +34,14 @@ public class ProductTemplate {
 	@Column(name="description_purchase")			
 	private String	description_purchase	;//	Purchase Description
 	
-	@Column(name="x_length_net")			
-	private double	x_length_net	;//	Net Length (cm)
-	
-	@Column(name="x_width_net")			
-	private double	x_width_net	;//	Net Width (cm)
-	
-	@Column(name="x_height_net")			
-	private double	x_height_net	;//	Net Height (cm)
+//	@Column(name="x_length_net")			
+//	private double	x_length_net	;//	Net Length (cm)
+//	
+//	@Column(name="x_width_net")			
+//	private double	x_width_net	;//	Net Width (cm)
+//	
+//	@Column(name="x_height_net")			
+//	private double	x_height_net	;//	Net Height (cm)
 
 	public long getId() {
 		return id;
@@ -83,29 +83,6 @@ public class ProductTemplate {
 		this.description_sale = description_sale;
 	}
 
-	public double getX_length_net() {
-		return x_length_net;
-	}
-
-	public void setX_length_net(double x_length_net) {
-		this.x_length_net = x_length_net;
-	}
-
-	public double getX_width_net() {
-		return x_width_net;
-	}
-
-	public void setX_width_net(double x_width_net) {
-		this.x_width_net = x_width_net;
-	}
-
-	public double getX_height_net() {
-		return x_height_net;
-	}
-
-	public void setX_height_net(double x_height_net) {
-		this.x_height_net = x_height_net;
-	}
 
 	public String getDescription_purchase() {
 		return description_purchase;

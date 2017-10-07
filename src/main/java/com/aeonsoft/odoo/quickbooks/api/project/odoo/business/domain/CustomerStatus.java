@@ -14,7 +14,8 @@ public class CustomerStatus {
 	private String mobile;
 	private String fax;
 	private String active;
-	private String parent_id;
+	
+	private int parent_id;
  	
 	public long  getId() {
 		return id;
@@ -88,12 +89,16 @@ public class CustomerStatus {
 	public void setActive(String active) {
 		this.active = active;
 	}
-	public String getParent_id() {
+	public int getParent_id() {
 		return parent_id;
 	}
-	public void setParent_id(String parent_id) {
+	public void setParent_id(int parent_id) {
 		this.parent_id = parent_id;
 	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+
  	
  	
 

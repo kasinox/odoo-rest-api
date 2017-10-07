@@ -26,6 +26,17 @@ public class CustomerService {
 	public List<CustomerStatus> getCustomeById(long id){
 	
 		Iterable<Partner> customer = this.customerRepository.findById(id);
+		List<CustomerStatus> customerStatus = mapCustomer(customer);
+		
+		return customerStatus;
+	}
+	public List<CustomerStatus> getCustomerAll(){
+		Iterable<Partner> customer = this.customerRepository.findAll();
+		List<CustomerStatus> customerStatus = mapCustomer(customer);
+		return customerStatus;
+	}
+
+	private List<CustomerStatus> mapCustomer(Iterable<Partner> customer) {
 		Map<Long,CustomerStatus> customerStatusMap = new HashMap<>();
 		
 		for(Partner cust: customer) {
@@ -42,7 +53,10 @@ public class CustomerService {
 			customerStatus.setMobile(cust.getMobile());
 			customerStatus.setFax(cust.getFax());
 			customerStatus.setActive(cust.getActive());
-			customerStatus.setParent_id(cust.getParent_id());			
+			if(null!=cust.getParent_id()) {
+				int id= Integer.parseInt(cust.getParent_id());
+				customerStatus.setParent_id(id);			
+			}
 			customerStatusMap.put(cust.getId(),customerStatus);
 		}
 				
@@ -50,9 +64,10 @@ public class CustomerService {
 		for(Long customerID:customerStatusMap.keySet()) {
 			customerStatus.add(customerStatusMap.get(customerID));
 		}
-		
 		return customerStatus;
 	}
+	
+
 	
 }
 	

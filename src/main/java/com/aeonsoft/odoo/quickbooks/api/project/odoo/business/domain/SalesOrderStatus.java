@@ -10,8 +10,10 @@ public class SalesOrderStatus {
 	private String paymentTerm;
 	private String status;
 	private String deliveryDate;
+	private String salesRepId;
 	private String salesRep;
 	private String amount_total;
+	
 	private int customer_id;
 	private int salesRep_id;
 	
@@ -75,6 +77,10 @@ public class SalesOrderStatus {
 	public void setId(long id) {
 		this.id = id;
 	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 	public int getCustomer_id() {
 		return customer_id;
 	}
@@ -86,9 +92,6 @@ public class SalesOrderStatus {
 	}
 	public void setSalesRep_id(int salesRep_id) {
 		this.salesRep_id = salesRep_id;
-	}
-	public void setId(Long id) {
-		this.id = id;
 	}
 	
 	

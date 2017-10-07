@@ -9,8 +9,8 @@ import javax.persistence.Table;
 
 
 /**
- * order_id = look up in sale_order
- * @author allen xu
+ * order_id = used for looking up in sale_order
+ * 
  *
  */
 @Entity
@@ -29,21 +29,22 @@ public class SalesOrderLine {
 	@Column(name="discount")		
 	private String 	discount	;//	Discount (%)
 	@Column(name="salesman_id")		
-	private int 	salesman_id	;//	Salesperson
+	private String salesman_id	;//	Salesperson
 	@Column(name="product_id")		
-	private int 	product_id	;//	Product
+	private String product_id	;//	Product
 	@Column(name="name")		
 	private String 	name	;//	Description
 	@Column(name="state")		
 	private String 	state	;//	Status
 	@Column(name="order_partner_id")		
-	private int 	order_partner_id	;//	Customer
+	private String order_partner_id	;//	Customer
 	@Column(name="purchase_price")		
 	private double 	purchase_price	;//	Cost Price
 	@Column(name="margin")		
 	private double 	margin;//	Margin
 	@Column(name="product_uom_qty")		
 	private double 	product_uom_qty	;//	Quantity
+	
 	public long getId() {
 		return id;
 	}
@@ -74,17 +75,24 @@ public class SalesOrderLine {
 	public void setDiscount(String discount) {
 		this.discount = discount;
 	}
-	public int getSalesman_id() {
+
+	public String getSalesman_id() {
 		return salesman_id;
 	}
-	public void setSalesman_id(int salesman_id) {
+	public void setSalesman_id(String salesman_id) {
 		this.salesman_id = salesman_id;
 	}
-	public int getProduct_id() {
+	public String getProduct_id() {
 		return product_id;
 	}
-	public void setProduct_id(int product_id) {
+	public void setProduct_id(String product_id) {
 		this.product_id = product_id;
+	}
+	public String getOrder_partner_id() {
+		return order_partner_id;
+	}
+	public void setOrder_partner_id(String order_partner_id) {
+		this.order_partner_id = order_partner_id;
 	}
 	public String getName() {
 		return name;
@@ -98,12 +106,7 @@ public class SalesOrderLine {
 	public void setState(String state) {
 		this.state = state;
 	}
-	public int getOrder_partner_id() {
-		return order_partner_id;
-	}
-	public void setOrder_partner_id(int order_partner_id) {
-		this.order_partner_id = order_partner_id;
-	}
+
 	public double getPurchase_price() {
 		return purchase_price;
 	}

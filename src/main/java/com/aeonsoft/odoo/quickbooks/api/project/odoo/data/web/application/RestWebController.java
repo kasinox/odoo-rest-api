@@ -3,6 +3,7 @@ package com.aeonsoft.odoo.quickbooks.api.project.odoo.data.web.application;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -42,11 +43,21 @@ public class RestWebController {
 		
 		return this.salesorderService.getSalesOrderByNumber(so_number);
 	}
+	@RequestMapping(method=RequestMethod.GET,value="/salesorderAll/")
+	public List<SalesOrderStatus> getSalesOrderByNumber(){
+		
+		return this.salesorderService.getSalesOrderAll();
+	}
 	
 	@RequestMapping(method=RequestMethod.GET,value="/customer/{customer_id}")
 	public List<CustomerStatus> getCustomerByNumber(@PathVariable(value="customer_id") String customer_id){
 		int id = Integer.parseInt(customer_id);
 		return this.customerService.getCustomeById(Integer.toUnsignedLong(id));
+	}
+	@RequestMapping(method=RequestMethod.GET,value="/customerAll/")
+	public List<CustomerStatus> getCustomerAll(){
+		
+		return this.customerService.getCustomerAll();
 	}
 	
 	@RequestMapping(method=RequestMethod.GET,value="/product/{product_id}")
@@ -54,16 +65,22 @@ public class RestWebController {
 		
 		return this.productService.getProductProductById(product_id);
 	}
+	@RequestMapping(method=RequestMethod.GET,value="/productAll/")
+	public List<ProductStatus> getProductAll(){
+		return this.productService.getProductProductAll();
+	}
 	
 	@RequestMapping(method=RequestMethod.GET,value="/salesorderline/{order_id}")
 	public List<SalesOrderLineStatus> getSalesOrderLineByOrderId(@PathVariable(value="order_id") String order_id){
 		return this.salesorderlineService.getSalesOrderLineByOrderId(order_id);
 	}
 	
-	@RequestMapping(method=RequestMethod.GET,value="/salesorderlineID/{id}")
-	public List<SalesOrderLineStatus> getSalesOrderLineById(@PathVariable(value="id") String id){
-		return this.salesorderlineService.getSalesOrderLineById(id);
+	@RequestMapping(method=RequestMethod.GET,value="/salesorderlineAll/")
+	public List<SalesOrderLineStatus> getSalesOrderLineAll(){
+		return this.salesorderlineService.getSalesLineLineAll();
 	}
+	
+
 
 }
 

@@ -7,4 +7,5 @@ import com.aeonsoft.odoo.quickbooks.api.project.odoo.data.entity.Partner;
 public interface PartnerRepository extends CrudRepository<Partner, Long>{
 	
 	List<Partner> findById(long id);
+	Partner findOneById(long id);
 }

@@ -27,7 +27,7 @@ public class SalesOrder {
     String ref;
     
     @Column(name="partner_id")
-    int partner_id;
+    String partner_id;
     
     @Column(name="amount_tax")
     String amount_tax;
@@ -42,7 +42,7 @@ public class SalesOrder {
     String state;
     
     @Column(name="user_id")
-    int user_id;
+    String user_id;
     
     @Column(name="date_confirm")
     Date date_confirm;
@@ -184,18 +184,19 @@ public class SalesOrder {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getPartner_id() {
+	public String getPartner_id() {
 		return partner_id;
 	}
-	public void setPartner_id(int partner_id) {
+	public void setPartner_id(String partner_id) {
 		this.partner_id = partner_id;
 	}
-	public int getUser_id() {
+	public String getUser_id() {
 		return user_id;
 	}
-	public void setUser_id(int user_id) {
+	public void setUser_id(String user_id) {
 		this.user_id = user_id;
 	}
+
 
 	
 
