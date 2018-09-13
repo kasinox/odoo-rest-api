@@ -47,16 +47,26 @@ public class CustomerService {
 			customerStatus.setStreet2(cust.getStreet2());
 			customerStatus.setCity(cust.getCity());
 			customerStatus.setZip(cust.getZip());
-			customerStatus.setState_id(cust.getState_id());
+			System.out.println("state_id:"+cust.getState_id());
+			if(cust.getState_id()!=null) {
+				customerStatus.setState_id(cust.getState_id());	
+				
+			}
+			System.out.println("state_id:"+customerStatus.getState_id());
 			customerStatus.setEmail(cust.getEmail());
 			customerStatus.setPhone(cust.getMobile());
 			customerStatus.setMobile(cust.getMobile());
 			customerStatus.setFax(cust.getFax());
 			customerStatus.setActive(cust.getActive());
-			if(null!=cust.getParent_id()) {
-				int id= Integer.parseInt(cust.getParent_id());
-				customerStatus.setParent_id(id);			
+//			if(null!=cust.getParent_id()) {
+//				int id= Integer.parseInt(cust.getParent_id());
+//				customerStatus.setParent_id(id);			
+//			}
+			System.out.println("parent_id:"+cust.getParent_id());
+			if(cust.getParent_id()!=null) {
+				customerStatus.setParent_id(cust.getParent_id());
 			}
+			System.out.println("parent_id:"+customerStatus.getState_id());
 			customerStatusMap.put(cust.getId(),customerStatus);
 		}
 				

@@ -25,7 +25,7 @@ public class Partner {
     private String use_parent_address;
     
     @Column(name="active")
-    private String active;
+    private boolean active;
     
     @Column(name="street")
     private String street;
@@ -49,7 +49,8 @@ public class Partner {
     private String country_id;
     
     @Column(name="parent_id")
-    private String parent_id;
+//    @Column(nullable=true)
+    private Integer parent_id;
     
     @Column(name="employee")
     private String employee;
@@ -119,7 +120,7 @@ public class Partner {
     private String is_company;
    
     @Column(name="state_id")
-    private String state_id;
+    private Integer state_id;
     
     @Column(name="commercial_partner_id")
     private String commercial_partner_id;
@@ -162,11 +163,11 @@ public class Partner {
 		this.use_parent_address = use_parent_address;
 	}
 
-	public String getActive() {
+	public boolean getActive() {
 		return active;
 	}
 
-	public void setActive(String active) {
+	public void setActive(boolean active) {
 		this.active = active;
 	}
 
@@ -226,11 +227,11 @@ public class Partner {
 		this.country_id = country_id;
 	}
 
-	public String getParent_id() {
+	public Integer getParent_id() {
 		return parent_id;
 	}
 
-	public void setParent_id(String parent_id) {
+	public void setParent_id(int parent_id) {
 		this.parent_id = parent_id;
 	}
 
@@ -410,11 +411,11 @@ public class Partner {
 		this.is_company = is_company;
 	}
 
-	public String getState_id() {
+	public Integer getState_id() {
 		return state_id;
 	}
 
-	public void setState_id(String state_id) {
+	public void setState_id(Integer state_id) {
 		this.state_id = state_id;
 	}
 

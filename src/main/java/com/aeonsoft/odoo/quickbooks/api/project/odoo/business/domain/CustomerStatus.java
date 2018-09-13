@@ -8,14 +8,14 @@ public class CustomerStatus {
 	private String street2;
 	private String city;
 	private String zip;
-	private String state_id;
+	private Integer state_id;
 	private String email;
 	private String phone;
 	private String mobile;
 	private String fax;
-	private String active;
+	private boolean active;
 	
-	private int parent_id;
+	private Integer parent_id;
  	
 	public long  getId() {
 		return id;
@@ -53,11 +53,11 @@ public class CustomerStatus {
 	public void setZip(String zip) {
 		this.zip = zip;
 	}
-	public String getState_id() {
+	public Integer getState_id() {
 		return state_id;
 	}
-	public void setState_id(String state_id) {
-		this.state_id = state_id;
+	public void setState_id(Integer i) {
+		this.state_id = i;
 	}
 	public String getEmail() {
 		return email;
@@ -83,16 +83,16 @@ public class CustomerStatus {
 	public void setFax(String fax) {
 		this.fax = fax;
 	}
-	public String getActive() {
+	public boolean getActive() {
 		return active;
 	}
-	public void setActive(String active) {
+	public void setActive(boolean active) {
 		this.active = active;
 	}
-	public int getParent_id() {
+	public Integer getParent_id() {
 		return parent_id;
 	}
-	public void setParent_id(int parent_id) {
+	public void setParent_id(Integer parent_id) {
 		this.parent_id = parent_id;
 	}
 	public void setId(Long id) {
